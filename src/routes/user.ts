@@ -1,6 +1,8 @@
 import express, {Express, Request, Response,  } from "express"
 
 import { createUserHandler } from "../controller/user.controller";
+import {validateRequest} from "../middleware/validateRequest";
+import { createUserSchema } from "../schemas/userSchema";
 
 const userRouter = express.Router();
 
