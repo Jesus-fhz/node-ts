@@ -2,6 +2,7 @@ import express  from "express";
 import config from "./config/defualt"
 import log from "./logger";
 import connection from "./db/db";
+import userRouter from "./routes/user";
 
 const port = config.port as number;
 const host = config.host as string;
@@ -15,4 +16,5 @@ app.listen(port, host, () => {
     log.info(`Server listening at http://${host}:${port}`);
     connection();
 })
- 
+
+app.use('/user',userRouter);
