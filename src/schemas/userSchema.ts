@@ -18,3 +18,17 @@ export const createUserSchema = object({
     })            
 })
 
+export const createSessionSchema = object({
+    body: object({
+        
+        password: string().required('Password is required')
+                  .min(6, "Password must be at least 6 characters"),
+                  //Regular Expresion for only alpha-numerics characters
+                  //.matches(/^[a-zA-Z0-9]*$/,"Only alpha-numerics characters") 
+        email: string()
+               .email("Must be a valid email")
+               .required("Email is required") 
+                  
+    })            
+})
+

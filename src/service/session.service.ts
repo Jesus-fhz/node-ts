@@ -2,7 +2,7 @@ import Session, { SessionDocument } from "../model/session.model";
 import { UserDocument } from '../model/user.model'
 import {LeanDocument } from 'mongoose';
 import { signToken } from "../utils/jwt";
-import { Omit } from "lodash";
+import { omit, Omit } from "lodash";
 
 export const createSession = async (userId: string, userAgent: string) => {
     const session  = await Session.create({user: userId, userAgent})
