@@ -8,9 +8,9 @@ export const createUserSchema = object({
                   //Regular Expresion for only alpha-numerics characters
                   //.matches(/^[a-zA-Z0-9]*$/,"Only alpha-numerics characters") 
         passwordConfirmation: string().oneOf(
-            [ref("password"), null], 
-            "Password must match" 
-        ), 
+                [ref("password"), null], 
+                "Password must match")
+                .required('Password confirmation is required'),
         email: string()
                .email("Must be a valid email")
                .required("Email is required") 

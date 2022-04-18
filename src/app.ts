@@ -7,7 +7,7 @@ import userRouter from "./routes/user";
 const port = config.port as number;
 const host = config.host as string;
 
-const app = express();
+const app = express(); 
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
