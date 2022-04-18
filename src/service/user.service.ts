@@ -1,5 +1,4 @@
-import {DocumentDefinition, LeanDocument } from 'mongoose';
-import { SessionDocument } from '../model/session.model';
+import {DocumentDefinition } from 'mongoose';
 import User, { UserDocument } from '../model/user.model'
 import { omit } from 'lodash';
 
@@ -22,16 +21,3 @@ export const findUser = async ({email, password}: {email: UserDocument["email"],
     return  omit(user.toJSON(), "password");
 }
 
-
-export const createAccessToken = (
-    {user, session}:
-    {
-        user: | Omit<UserDocument, "password"> | LeanDocument<Omit<UserDocument, "password">>,
-        session: | Omit<SessionDocument, "password"> | LeanDocument<Omit<UserDocument, "password">>
-    }) => {
-        const accessToken = sign(
-            {...user, session: session._id},
-            {expiresIn: 900}
-        )
-    return accessToken;
-}
