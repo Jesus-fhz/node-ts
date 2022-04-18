@@ -3,7 +3,7 @@ import config from "../config/defualt";
 import log from "../logger";
 
 const connection = () => {
-    const db = mongoose.connect(`${config.db}`, {useNewUrlParser: true} as ConnectOptions)
+    const db = mongoose.connect(`${config.db}`)
                .then(()=> log.info("Connection established"))
                .catch((err)=> {
                    log.info(err)
